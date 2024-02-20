@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { Movie } from "../interfaces/Movie"
+import { ApiResponseToMovie, ApiResponseToMovies } from "../utils/parsing"
 
 // Devrait etre defini dans un fichier .env
 const ACCESS_TOKEN =
@@ -23,44 +24,42 @@ export const tmdbApi = createApi({
       }),
       // Il serait bon de creer une interface de retour de l'API pour etre type safe
       transformResponse: (response: any): Movie[] => {
-        if (!response || !response.results) return []
-        const moviesResult: Movie[] = []
-        response.results.forEach((movie: any) => {
-          const currentImageURL = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-          const currentMovie: Movie = {
-            id: movie.id,
-            title: movie.title,
-            imageURL: currentImageURL,
-          }
-          moviesResult.push(currentMovie)
-        })
-        return moviesResult
+        return ApiResponseToMovies(response)
       },
     }),
 
     // GET movies by release date asc
     // On aurait pu ajouter un param 'sort_by' mais on n'utilise qu'une seule fois cette route
-    getMoviesByReleaseDateAsc: builder.query({
+    getMoviesByReleaseDateAsc: builder.query<Movie[], undefined>({
       query: () => ({
         url: "discover/movie",
-        params: [
-          { include_adult: "false" },
-          { include_video: "false" },
-          { language: "fr-FR" },
-          { page: "1" },
-          { sort_by: "primary_release_date.asc" },
-        ],
+        params: {
+          include_adult: "false",
+          include_video: "false",
+          language: "fr-FR",
+          page: "1",
+          sort_by: "primary_release_date.asc",
+        },
       }),
+      transformResponse: (response: any): Movie[] => {
+        return ApiResponseToMovies(response)
+      },
     }),
 
     // GET movie details
-    getMovieDetails: builder.query({
+    getMovieDetails: builder.query<Movie, string>({
       query: (movieId: string) => `movie/${movieId}`,
+      transformResponse: (response: any): Movie => {
+        return ApiResponseToMovie(response)
+      },
     }),
 
     // GET movie recommendations
-    getMovieRecommendations: builder.query({
+    getMovieRecommendations: builder.query<Movie[], string>({
       query: (movieId: string) => `movie/${movieId}/recommendations`,
+      transformResponse: (response: any): Movie[] => {
+        return ApiResponseToMovies(response)
+      },
     }),
   }),
 })

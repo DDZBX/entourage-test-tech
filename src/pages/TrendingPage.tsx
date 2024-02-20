@@ -1,12 +1,9 @@
 import { Grid } from "@mui/material"
-import { useGetTrendingQuery } from "../services/tmdb"
-import { MovieCard } from "./MovieCard"
+import { MovieCard } from "../components/MovieCard"
 import { Movie } from "../interfaces/Movie"
+import { useGetTrendingQuery } from "../services/tmdb"
 
-export const TrendingMovies = () => {
-  // const count = useSelector((state: RootState) => state.counter.value)
-  // const dispatch = useDispatch<AppDispatch>()
-  // const { data, error, isLoading } = useGetTrendingQuery(null)
+export const TrendingPage = () => {
   const { data, error, isLoading } = useGetTrendingQuery(undefined)
 
   console.log(data)
@@ -22,7 +19,7 @@ export const TrendingMovies = () => {
   return (
     <Grid container spacing={2}>
       {data.map((m: Movie) => (
-        <Grid item xs={8} lg={4} xl={3}>
+        <Grid key={m.id} item xs={8} lg={4} xl={3}>
           <MovieCard movie={m} />
         </Grid>
       ))}

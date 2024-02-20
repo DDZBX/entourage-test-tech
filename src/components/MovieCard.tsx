@@ -7,14 +7,17 @@ import {
   Button,
 } from "@mui/material"
 import { Movie } from "../interfaces/Movie"
+import { useNavigate } from "react-router-dom"
 
 interface MovieCardProps {
   movie: Movie
 }
 
 export const MovieCard = (props: MovieCardProps) => {
+  const navigate = useNavigate()
+
   return (
-    <Card sx={{ maxWidth: 345, height: 300 }}>
+    <Card sx={{ maxWidth: 345, height: 350 }}>
       <CardMedia
         component="img"
         alt="movie image"
@@ -27,8 +30,14 @@ export const MovieCard = (props: MovieCardProps) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button
+          size="small"
+          onClick={() => {
+            navigate(`/movie/${props.movie.id}`)
+          }}
+        >
+          Details
+        </Button>
       </CardActions>
     </Card>
   )

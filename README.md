@@ -1,5 +1,12 @@
 # Test technique - Entourage
 
+## Librairies utilisees
+
+- React
+- Redux
+- MUI
+- React Router
+
 ## Tracking du temps
 
 - Crash course sur redux: 2h
@@ -9,4 +16,5 @@
 - Decouverte de RTK Query et implementation du code suivant le [tutoriel](https://redux-toolkit.js.org/tutorials/rtk-query): 30min
 - Creation de l'API tmdb et des endpoints necessaires: 1h
 - Creation repo et premier commit: 15min
-- Creation de la page Trending et des MovieCards
+- Creation de la page TrendingPage et des MovieCards: 2h
+- Creation de la page MoviesPage: 1h
