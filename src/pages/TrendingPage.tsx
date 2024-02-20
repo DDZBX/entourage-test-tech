@@ -1,7 +1,5 @@
-import { Grid } from "@mui/material"
-import { MovieCard } from "../components/MovieCard"
-import { Movie } from "../interfaces/Movie"
 import { useGetTrendingQuery } from "../services/tmdb"
+import { MovieGrid } from "../components/MovieGrid"
 
 export const TrendingPage = () => {
   const { data, error, isLoading } = useGetTrendingQuery(undefined)
@@ -16,13 +14,5 @@ export const TrendingPage = () => {
     return <div>No Data</div>
   }
 
-  return (
-    <Grid container spacing={2}>
-      {data.map((m: Movie) => (
-        <Grid key={m.id} item xs={8} lg={4} xl={3}>
-          <MovieCard movie={m} />
-        </Grid>
-      ))}
-    </Grid>
-  )
+  return <MovieGrid movies={data} />
 }

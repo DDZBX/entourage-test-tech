@@ -1,5 +1,6 @@
 import { Paper, Grid, Typography } from "@mui/material"
-import { useGetMovieDetailsQuery, useGetTrendingQuery } from "../services/tmdb"
+import { useGetMovieDetailsQuery } from "../services/tmdb"
+import defaultMovieImg from "../assets/default-movie.jpg"
 
 interface MovieDetailsProps {
   movieId: string
@@ -21,14 +22,8 @@ export const MovieDetails = (props: MovieDetailsProps) => {
   return (
     <>
       <Paper elevation={2}>
-        <img src={data.imageURL} alt="Affiche du film"></img>
-        <img
-          className="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-o69gx8-MuiCardMedia-root"
-          src="src/assets/default-movie.jpg"
-          alt="movie image"
-          height="140"
-        ></img>
-        <Grid container spacing={2} padding={5}>
+        <img src={defaultMovieImg} height={300} alt="Affiche du film"></img>
+        <Grid container spacing={2} padding={5} marginBottom={4}>
           <Grid item xs={4}>
             <Typography>ID</Typography>
           </Grid>

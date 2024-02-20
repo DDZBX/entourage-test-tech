@@ -2,6 +2,7 @@ import { Grid } from "@mui/material"
 import { MovieCard } from "../components/MovieCard"
 import { Movie } from "../interfaces/Movie"
 import { useGetMoviesByReleaseDateAscQuery } from "../services/tmdb"
+import { MovieGrid } from "../components/MovieGrid"
 
 export const MoviesPage = () => {
   const { data, error, isLoading } =
@@ -17,13 +18,5 @@ export const MoviesPage = () => {
     return <div>No Data</div>
   }
 
-  return (
-    <Grid container spacing={2}>
-      {data.map((m: Movie) => (
-        <Grid key={m.id} item xs={8} lg={4} xl={3}>
-          <MovieCard movie={m} />
-        </Grid>
-      ))}
-    </Grid>
-  )
+  return <MovieGrid movies={data} />
 }

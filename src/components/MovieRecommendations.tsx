@@ -1,9 +1,6 @@
-import { Paper, Grid, Typography } from "@mui/material"
-import {
-  useGetMovieDetailsQuery,
-  useGetMovieRecommendationsQuery,
-  useGetTrendingQuery,
-} from "../services/tmdb"
+import { Typography } from "@mui/material"
+import { useGetMovieRecommendationsQuery } from "../services/tmdb"
+import { MovieGrid } from "./MovieGrid"
 
 interface MovieRecommendationsProps {
   movieId: string
@@ -24,5 +21,13 @@ export const MovieRecommendations = (props: MovieRecommendationsProps) => {
     return <div>No Data</div>
   }
 
-  return <>Recommendations</>
+  return (
+    <>
+      <Typography variant="h3" gutterBottom>
+        Recommende pour vous
+      </Typography>
+      {/* Il serait plus judicieux d'afficher un carousel horizontal ici, mais je reutilise un component deja disponible  */}
+      <MovieGrid movies={data.slice(0, 4)} />
+    </>
+  )
 }

@@ -8,6 +8,7 @@ import {
 } from "@mui/material"
 import { Movie } from "../interfaces/Movie"
 import { useNavigate } from "react-router-dom"
+import defaultMovieImg from "../assets/default-movie.jpg"
 
 interface MovieCardProps {
   movie: Movie
@@ -22,7 +23,7 @@ export const MovieCard = (props: MovieCardProps) => {
         component="img"
         alt="movie image"
         height="140"
-        image={props.movie.imageURL}
+        image={props.movie.imageURL || defaultMovieImg}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
