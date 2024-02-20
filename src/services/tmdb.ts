@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { Movie } from "../interfaces/Movie"
 
 // Devrait etre defini dans un fichier .env
 const ACCESS_TOKEN =
@@ -15,11 +16,26 @@ export const tmdbApi = createApi({
 
   endpoints: builder => ({
     // GET trending
-    getTrending: builder.query({
+    getTrending: builder.query<Movie[], undefined>({
       query: () => ({
         url: "/trending/movie/day",
         params: { language: "fr-FR" },
       }),
+      // Il serait bon de creer une interface de retour de l'API pour etre type safe
+      transformResponse: (response: any): Movie[] => {
+        if (!response || !response.results) return []
+        const moviesResult: Movie[] = []
+        response.results.forEach((movie: any) => {
+          const currentImageURL = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+          const currentMovie: Movie = {
+            id: movie.id,
+            title: movie.title,
+            imageURL: currentImageURL,
+          }
+          moviesResult.push(currentMovie)
+        })
+        return moviesResult
+      },
     }),
 
     // GET movies by release date asc

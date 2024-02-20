@@ -1,41 +1,26 @@
-// import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-// import { Film } from "../../interfaces/Film"
-// import { getTrendingMovies } from "../../queries/getTrendingMovies"
+import { createSlice } from "@reduxjs/toolkit"
+import { Movie } from "../../interfaces/Movie"
 
-// interface CounterState {
-//   tendingMovies: Film[]
-// }
+interface MovieState {
+  // Pourrait seulement etre un tableau de movieId, mais augmentrait le nombre de calls a l'API lors de l'affichage de la liste
+  // Devrait etre persiste en DB
+  watchList: Movie[]
+  // Devrait etre persiste en DB
+  // <MovieId, rating>
+  ratings: Record<number, 1 | 2 | 3 | 4 | 5>
+}
 
-// const initialState: CounterState = {
-//   tendingMovies: [],
-// }
+const initialState: MovieState = {
+  watchList: [],
+  ratings: [],
+}
 
-// const counterSlice = createSlice({
-//   name: "counter",
-//   initialState,
-//   reducers: {},
-//   extraReducers: builder => {
-//     builder.addCase(
-//       getTrendingMoviesAsyc.fulfilled,
-//       (state, action: PayloadAction<void>) => {
-//         state.tendingMovies = action.payload
-//       },
-//     )
-//   },
-// })
+const movieSlice = createSlice({
+  name: "movie",
+  initialState,
+  reducers: {},
+})
 
-// export const getTrendingMoviesAsyc = createAsyncThunk(
-//   "movies/getTrendingMoviesAsyc",
-//   async () => {
-//     await fetch("https://api.example.com/data")
-//       .catch(error => console.log(error))
-//       .then(response => console.log(response))
-//       .then(data => {
-//         return data
-//       })
-//   },
-// )
+export const {} = movieSlice.actions
 
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
-// export default counterSlice.reducer
+export default movieSlice.reducer
