@@ -22,7 +22,7 @@ export const MovieDetails = (props: MovieDetailsProps) => {
   return (
     <>
       <Paper elevation={2}>
-        <img src={defaultMovieImg} height={300} alt="Affiche du film"></img>
+        <img src={defaultMovieImg} height={200} alt="Affiche du film"></img>
         <Grid container spacing={2} padding={5} marginBottom={4}>
           <Grid item xs={4}>
             <Typography>ID</Typography>
@@ -36,6 +36,7 @@ export const MovieDetails = (props: MovieDetailsProps) => {
           <Grid item xs={8}>
             <Typography>{data.title}</Typography>
           </Grid>
+          {/* On pourrait ajouter ici bien plus de details retournes par l'api */}
         </Grid>
       </Paper>
     </>

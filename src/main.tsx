@@ -7,9 +7,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Container } from "@mui/material"
 import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
-import { Route } from "./interfaces/Routes"
+import { Route } from "./interfaces/Route"
 import { MoviesPage } from "./pages/MoviesPage"
 import { MovieDetailPage } from "./pages/MovieDetailPage"
+import { FavoritesMoviesPage } from "./pages/FavoritesMoviesPage"
 
 const container = document.getElementById("root")
 
@@ -27,6 +28,10 @@ if (container) {
     {
       path: "/movie/:movieId",
       element: <MovieDetailPage />,
+    },
+    {
+      path: "/favorites",
+      element: <FavoritesMoviesPage />,
     },
   ])
 

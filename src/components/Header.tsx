@@ -1,5 +1,5 @@
 import { Toolbar, Typography, Link } from "@mui/material"
-import { Route } from "../interfaces/Routes"
+import { Route } from "../interfaces/Route"
 
 interface HeaderProps {
   routes: Route[]

@@ -48,7 +48,12 @@ export const tmdbApi = createApi({
 
     // GET movie details
     getMovieDetails: builder.query<Movie, string>({
-      query: (movieId: string) => `movie/${movieId}`,
+      query: (movieId: string) => ({
+        url: `movie/${movieId}`,
+        params: {
+          language: "fr-FR",
+        },
+      }),
       transformResponse: (response: any): Movie => {
         return ApiResponseToMovie(response)
       },
@@ -56,7 +61,12 @@ export const tmdbApi = createApi({
 
     // GET movie recommendations
     getMovieRecommendations: builder.query<Movie[], string>({
-      query: (movieId: string) => `movie/${movieId}/recommendations`,
+      query: (movieId: string) => ({
+        url: `movie/${movieId}/recommendations`,
+        params: {
+          language: "fr-FR",
+        },
+      }),
       transformResponse: (response: any): Movie[] => {
         return ApiResponseToMovies(response)
       },
