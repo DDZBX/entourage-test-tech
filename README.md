@@ -52,7 +52,7 @@
 ## Remarques
 
 - Clavier QWERTY: Je n'utilise pas, ou tres peu d'accents car j'utilise toujours un clavier QWERTY sans pave numerique. Ma seule solution pour avoir des accents est de copier-coller le charactere :x. Je prevois de changer de clavier rapidement!
-- Persistance des donnees: Les donnes des utilisateurs ne sont pas persistes en base de donnees et seront donc perdues lors d'un changement d'appareil
+- Persistance des donnees: Les donnees des utilisateurs ne sont pas persistees en base de donnees et seront donc perdues lors d'un changement d'appareil
 - Paging et infine scrolling: En situation reelle, on aurait pu mettre en place de la pagination pour les differentes query
 - Styling: Je n'ai pas pousse tres loin le style des pages, je pense que ce n'etait pas le but recherche
 - Tests: En situation reelle, il serait bon d'avoir des tests et plus de documentation!
