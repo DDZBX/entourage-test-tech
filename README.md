@@ -13,7 +13,7 @@
 
 1. Cloner le repository
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/DDZBX/entourage-test-tech.git
    ```
 2. Installer les packages NPM
    ```sh
@@ -45,15 +45,14 @@
 - Decouverte de l'API TMDB et recuperation de la cle: 30min
 - Decouverte de RTK Query et implementation du code suivant le [tutoriel](https://redux-toolkit.js.org/tutorials/rtk-query): 30min
 - Creation de l'API tmdb et des endpoints necessaires: 1h
-- Creation de la page TrendingPage et des MovieCards: 2h
+- Creation de la page TrendingPage et des MovieCards: 1h
 - Creation de la page MoviesPage: 1h
 - Creation et controle du rating et de l'ajout en favoris: 2h
 
 ## Remarques
 
-- Persistance des donnes
-- Paging et infine scrolling
-- Styling
-- Caching
-- Typing du retour de l'API
-- Tests
+- Clavier QWERTY: Je n'utilise pas, ou tres peu d'accents car j'utilise toujours un clavier QWERTY sans pave numerique. Ma seule solution pour avoir des accents est de copier-coller le charactere :x. Je prevois de changer de clavier rapidement!
+- Persistance des donnes: Les donnes des utilisateurs ne sont pas persistes en base de donnees et seront donc perdues lors d'un changement d'appareil
+- Paging et infine scrolling: En situation reelle, on aurait pu mettre en place de la pagination pour les differentes query
+- Styling: Je n'ai pas pousse tres loin le style des pages, je pense que ce n'etait pas le but recherche
+- Tests: En situation reelle, il serait bon d'avoir des tests et plus de documentation!

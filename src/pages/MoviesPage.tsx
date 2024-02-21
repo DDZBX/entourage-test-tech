@@ -1,6 +1,3 @@
-import { Grid } from "@mui/material"
-import { MovieCard } from "../components/MovieCard"
-import { Movie } from "../interfaces/Movie"
 import { useGetMoviesByReleaseDateAscQuery } from "../services/tmdb"
 import { MovieGrid } from "../components/MovieGrid"
 

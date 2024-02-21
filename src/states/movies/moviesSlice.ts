@@ -8,7 +8,7 @@ interface MovieState {
   favorites: number[]
   // Devrait etre persiste en DB
   // L'ideal serait de pouvoir utiliser une Map<number, RatingNumber>
-  // pour garantir l'unicite mais c'est impossible avec redux-persist
+  // pour garantir l'unicite et reduire les temps d'acces mais c'est impossible avec redux-persist
   ratings: MovieRating[]
 }
 
@@ -23,7 +23,7 @@ const movieSlice = createSlice({
   reducers: {
     toggleFavorite: (state, action: PayloadAction<number>) => {
       const index = state.favorites.findIndex(i => i === action.payload)
-      // Si le movieId n'est pas present dans favorites, on l'ajoute
+      // Si le movieId n'est pas present dans favoris, on l'ajoute
       if (index === -1) {
         state.favorites.push(action.payload)
       }

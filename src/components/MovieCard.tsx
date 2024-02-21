@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../states/store"
 import { rateMovie, toggleFavorite } from "../states/movies/moviesSlice"
 import { RatingNumber } from "../interfaces/RatingNumber"
-import { Height } from "@mui/icons-material"
 
 interface MovieCardProps {
   movie: Movie

@@ -10,7 +10,7 @@ export const MovieGrid = (props: MovieGridProps) => {
   return (
     <Grid container spacing={2}>
       {props.movies.map((m: Movie) => (
-        <Grid key={m.id} item xs={8} lg={4} xl={3}>
+        <Grid key={m.id} item xs={6} lg={4} xl={3}>
           <MovieCard movie={m} />
         </Grid>
       ))}

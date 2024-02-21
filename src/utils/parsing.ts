@@ -2,6 +2,8 @@ import { Movie } from "../interfaces/Movie"
 
 const TMDB_BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original"
 
+// Fonctions utilitaires pour convertir la reponse de l'API en objets Movie
+
 export const apiResponseToMovies = (apiResponse: any): Movie[] => {
   if (!apiResponse || !apiResponse.results) return []
   const moviesResult: Movie[] = []

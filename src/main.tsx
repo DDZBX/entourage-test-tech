@@ -37,7 +37,7 @@ if (container) {
   ])
 
   const routes: Route[] = [
-    { title: "A la une", url: "/" },
+    { title: "À la une", url: "/" },
     { title: "Mes Favoris", url: "/favorites" },
     { title: "Tous les films", url: "/movies" },
   ]

@@ -18,31 +18,30 @@ export const MovieDetails = (props: MovieDetailsProps) => {
   }
 
   return (
-    <>
-      <Paper elevation={2}>
-        <img src={defaultMovieImg} height={200} alt="Affiche du film"></img>
-        <Grid container spacing={2} padding={5} marginBottom={4}>
-          <Grid item xs={4}>
-            <Typography>ID</Typography>
-          </Grid>
-          <Grid item xs={8}>
-            <Typography>{data.id}</Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography>Titre</Typography>
-          </Grid>
-          <Grid item xs={8}>
-            <Typography>{data.title}</Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography>Date de sortie</Typography>
-          </Grid>
-          <Grid item xs={8}>
-            <Typography>{data.releaseDate}</Typography>
-          </Grid>
-          {/* On pourrait ajouter ici bien plus de details retournes par l'api */}
+    <Paper elevation={2}>
+      <img src={defaultMovieImg} height={200} alt="Affiche du film"></img>
+      <Grid container spacing={2} padding={5} marginBottom={4}>
+        <Grid item xs={4}>
+          <Typography>ID</Typography>
         </Grid>
-      </Paper>
-    </>
+        <Grid item xs={8}>
+          <Typography>{data.id}</Typography>
+        </Grid>
+        <Grid item xs={4}>
+          <Typography>Titre</Typography>
+        </Grid>
+        <Grid item xs={8}>
+          <Typography>{data.title}</Typography>
+        </Grid>
+        <Grid item xs={4}>
+          <Typography>Date de sortie</Typography>
+        </Grid>
+        <Grid item xs={8}>
+          {/* On pourrait creer un objet date et le formater selon notre envie  */}
+          <Typography>{data.releaseDate}</Typography>
+        </Grid>
+        {/* On pourrait ajouter ici bien plus de details retournes par l'api */}
+      </Grid>
+    </Paper>
   )
 }
