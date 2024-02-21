@@ -2,7 +2,7 @@ import { useGetTrendingQuery } from "../services/tmdb"
 import { MovieGrid } from "../components/MovieGrid"
 
 export const TrendingPage = () => {
-  const { data, error, isLoading } = useGetTrendingQuery(undefined)
+  const { data, error, isLoading } = useGetTrendingQuery()
 
   if (isLoading) {
     return <div>Loading</div>

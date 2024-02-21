@@ -6,6 +6,7 @@ import { persistStore, persistReducer } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import autoMergeLevel1 from "redux-persist/es/stateReconciler/autoMergeLevel1"
 
+// Configuration de la persistance avec redux-persist-state
 const persistConfig = {
   key: "root",
   storage,

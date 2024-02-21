@@ -10,8 +10,8 @@ import { Header } from "./components/Header"
 import { Route } from "./interfaces/Route"
 import { MoviesPage } from "./pages/MoviesPage"
 import { MovieDetailPage } from "./pages/MovieDetailPage"
-import { FavoritesMoviesPage } from "./pages/FavoritesMoviesPage"
 import { PersistGate } from "redux-persist/integration/react"
+import { FavoritesMoviesPage } from "./pages/FavoritesMoviesPage"
 
 const container = document.getElementById("root")
 
@@ -38,6 +38,7 @@ if (container) {
 
   const routes: Route[] = [
     { title: "A la une", url: "/" },
+    { title: "Mes Favoris", url: "/favorites" },
     { title: "Tous les films", url: "/movies" },
   ]
 

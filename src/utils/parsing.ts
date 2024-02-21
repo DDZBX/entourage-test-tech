@@ -13,6 +13,7 @@ export const apiResponseToMovies = (apiResponse: any): Movie[] => {
     const currentMovie: Movie = {
       id: movie.id,
       title: movie.title,
+      releaseDate: apiResponse.release_date,
       imageURL: movieImage,
     }
     moviesResult.push(currentMovie)
@@ -28,6 +29,7 @@ export const apiResponseToMovie = (apiResponse: any): Movie => {
   const movie: Movie = {
     id: apiResponse.id,
     title: apiResponse.title,
+    releaseDate: apiResponse.release_date,
     imageURL: movieImage,
   }
   return movie

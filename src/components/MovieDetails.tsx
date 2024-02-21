@@ -34,6 +34,12 @@ export const MovieDetails = (props: MovieDetailsProps) => {
           <Grid item xs={8}>
             <Typography>{data.title}</Typography>
           </Grid>
+          <Grid item xs={4}>
+            <Typography>Date de sortie</Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <Typography>{data.releaseDate}</Typography>
+          </Grid>
           {/* On pourrait ajouter ici bien plus de details retournes par l'api */}
         </Grid>
       </Paper>

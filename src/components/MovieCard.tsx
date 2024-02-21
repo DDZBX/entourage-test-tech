@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../states/store"
 import { rateMovie, toggleFavorite } from "../states/movies/moviesSlice"
 import { RatingNumber } from "../interfaces/RatingNumber"
+import { Height } from "@mui/icons-material"
 
 interface MovieCardProps {
   movie: Movie
@@ -46,12 +47,9 @@ export const MovieCard = (props: MovieCardProps) => {
           height="140"
           image={props.movie.imageURL || defaultMovieImg}
         />
-        <CardContent>
+        <CardContent sx={{ minHeight: 150 }}>
           <Typography gutterBottom variant="h5" component="div">
             {props.movie.title}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="div">
-            {props.movie.id}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -47,7 +47,7 @@
 - Creation de l'API tmdb et des endpoints necessaires: 1h
 - Creation de la page TrendingPage et des MovieCards: 2h
 - Creation de la page MoviesPage: 1h
-- Creation et controle du rating et de l'ajout en favoris
+- Creation et controle du rating et de l'ajout en favoris: 2h
 
 ## Remarques
 
