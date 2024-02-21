@@ -2,14 +2,14 @@
 
 ## Getting started
 
-# Prerequis
+### Prerequis
 
 - npm
   ```sh
   npm install npm@latest -g
   ```
 
-# Installation
+### Installation
 
 1. Cloner le repository
    ```sh
