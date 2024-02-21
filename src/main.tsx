@@ -1,7 +1,7 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
-import { store } from "./states/store"
+import { persistor, store } from "./states/store"
 import { TrendingPage } from "./pages/TrendingPage"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Container } from "@mui/material"
@@ -11,6 +11,7 @@ import { Route } from "./interfaces/Route"
 import { MoviesPage } from "./pages/MoviesPage"
 import { MovieDetailPage } from "./pages/MovieDetailPage"
 import { FavoritesMoviesPage } from "./pages/FavoritesMoviesPage"
+import { PersistGate } from "redux-persist/integration/react"
 
 const container = document.getElementById("root")
 
@@ -43,13 +44,15 @@ if (container) {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <Container maxWidth="lg">
-          <Header routes={routes} />
-          <main>
-            <RouterProvider router={router} />
-          </main>
-        </Container>
-        <Footer />
+        <PersistGate loading={null} persistor={persistor}>
+          <Container maxWidth="lg">
+            <Header routes={routes} />
+            <main>
+              <RouterProvider router={router} />
+            </main>
+          </Container>
+          <Footer />
+        </PersistGate>
       </Provider>
     </React.StrictMode>,
   )

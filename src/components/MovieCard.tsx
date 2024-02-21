@@ -12,7 +12,11 @@ import {
 import { Movie } from "../interfaces/Movie"
 import { useNavigate } from "react-router-dom"
 import defaultMovieImg from "../assets/default-movie.jpg"
-import VisibilityIcon from "@mui/icons-material/Visibility"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "../states/store"
+import { rateMovie, toggleFavorite } from "../states/movies/moviesSlice"
+import { RatingNumber } from "../interfaces/RatingNumber"
 
 interface MovieCardProps {
   movie: Movie
@@ -20,6 +24,14 @@ interface MovieCardProps {
 
 export const MovieCard = (props: MovieCardProps) => {
   const navigate = useNavigate()
+  const dispatch = useDispatch<AppDispatch>()
+
+  const favorites = useSelector((state: RootState) => state.movies.favorites)
+  const ratings = useSelector((state: RootState) => state.movies.ratings)
+
+  const isFavorite = favorites.indexOf(props.movie.id) !== -1
+  const rating =
+    ratings.find(rating => rating.movieId === props.movie.id)?.rating || null
 
   return (
     <Card sx={{ maxWidth: 345, height: 350 }}>
@@ -38,6 +50,9 @@ export const MovieCard = (props: MovieCardProps) => {
           <Typography gutterBottom variant="h5" component="div">
             {props.movie.title}
           </Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            {props.movie.id}
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
@@ -47,10 +62,30 @@ export const MovieCard = (props: MovieCardProps) => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Rating name="no-value" value={null} />
-          <IconButton aria-label="delete" size="large">
-            {/* <VisibilityIcon color="success" fontSize="inherit" /> */}
-            <VisibilityIcon fontSize="inherit" />
+          <Rating
+            value={rating}
+            onChange={(_, newValue) => {
+              if (newValue) {
+                dispatch(
+                  rateMovie({
+                    movieId: props.movie.id,
+                    rating: newValue as RatingNumber,
+                  }),
+                )
+              }
+            }}
+          />
+
+          <IconButton
+            aria-label="delete"
+            size="large"
+            onClick={() => dispatch(toggleFavorite(props.movie.id))}
+          >
+            {isFavorite ? (
+              <FavoriteIcon color="error" fontSize="inherit" />
+            ) : (
+              <FavoriteIcon fontSize="inherit" />
+            )}
           </IconButton>
         </Box>
       </CardActions>

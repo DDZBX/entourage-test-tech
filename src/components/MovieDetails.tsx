@@ -9,8 +9,6 @@ interface MovieDetailsProps {
 export const MovieDetails = (props: MovieDetailsProps) => {
   const { data, error, isLoading } = useGetMovieDetailsQuery(props.movieId)
 
-  console.log(data)
-
   if (isLoading) {
     return <div>Loading</div>
   } else if (error) {

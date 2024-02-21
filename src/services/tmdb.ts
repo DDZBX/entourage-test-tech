@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { Movie } from "../interfaces/Movie"
-import { ApiResponseToMovie, ApiResponseToMovies } from "../utils/parsing"
+import { apiResponseToMovie, apiResponseToMovies } from "../utils/parsing"
 
 // Devrait etre defini dans un fichier .env
 const ACCESS_TOKEN =
@@ -24,7 +24,7 @@ export const tmdbApi = createApi({
       }),
       // Il serait bon de creer une interface de retour de l'API pour etre type safe
       transformResponse: (response: any): Movie[] => {
-        return ApiResponseToMovies(response)
+        return apiResponseToMovies(response)
       },
     }),
 
@@ -42,7 +42,7 @@ export const tmdbApi = createApi({
         },
       }),
       transformResponse: (response: any): Movie[] => {
-        return ApiResponseToMovies(response)
+        return apiResponseToMovies(response)
       },
     }),
 
@@ -55,7 +55,7 @@ export const tmdbApi = createApi({
         },
       }),
       transformResponse: (response: any): Movie => {
-        return ApiResponseToMovie(response)
+        return apiResponseToMovie(response)
       },
     }),
 
@@ -68,7 +68,7 @@ export const tmdbApi = createApi({
         },
       }),
       transformResponse: (response: any): Movie[] => {
-        return ApiResponseToMovies(response)
+        return apiResponseToMovies(response)
       },
     }),
   }),

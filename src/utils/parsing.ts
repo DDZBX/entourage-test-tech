@@ -2,7 +2,7 @@ import { Movie } from "../interfaces/Movie"
 
 const TMDB_BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original"
 
-export const ApiResponseToMovies = (apiResponse: any): Movie[] => {
+export const apiResponseToMovies = (apiResponse: any): Movie[] => {
   if (!apiResponse || !apiResponse.results) return []
   const moviesResult: Movie[] = []
   apiResponse.results.forEach((movie: any) => {
@@ -20,7 +20,7 @@ export const ApiResponseToMovies = (apiResponse: any): Movie[] => {
   return moviesResult
 }
 
-export const ApiResponseToMovie = (apiResponse: any): Movie => {
+export const apiResponseToMovie = (apiResponse: any): Movie => {
   const movieImage =
     apiResponse.backdrop_path !== null
       ? `${TMDB_BASE_IMAGE_URL}${apiResponse.backdrop_path}`

@@ -8,8 +8,6 @@ export const MoviesPage = () => {
   const { data, error, isLoading } =
     useGetMoviesByReleaseDateAscQuery(undefined)
 
-  console.log(data)
-
   if (isLoading) {
     return <div>Loading</div>
   } else if (error) {

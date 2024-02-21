@@ -4,8 +4,6 @@ import { MovieGrid } from "../components/MovieGrid"
 export const TrendingPage = () => {
   const { data, error, isLoading } = useGetTrendingQuery(undefined)
 
-  console.log(data)
-
   if (isLoading) {
     return <div>Loading</div>
   } else if (error) {

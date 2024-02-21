@@ -17,7 +17,7 @@ export const Header = (props: HeaderProps) => {
           noWrap
           sx={{ flex: 1 }}
         >
-          Entourage test technique
+          Hello Ciney
         </Typography>
       </Toolbar>
       <Toolbar
